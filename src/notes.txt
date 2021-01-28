@@ -1,0 +1,25 @@
+ctrl b - show sidebar
+crtl p - open file
+crtl g - come to str by number
+f2 - rename consts
+
+
+? type reducer
+? type store
+YOS - разделить на контейнеры
+localstorage & redux
+panel
+
+navbar interface ?
+
+1)
+<Box p={1} color = 'common.white' mt={1}'>
+  <Typography color = '(i need common.white like in Box, so how i can get it here )' variant='subtitle2'>
+    Some text  
+  </Typography>
+</Box>
+
+2)
+<Box color = '(i need gray[500] what i need write here)'>
+  Some text
+</Box>
