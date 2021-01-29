@@ -10,7 +10,7 @@ const useRoutes = () => {
       <Route path='/' exact>
         <Home />
       </Route>
-      <Route path='/gallery' exact>
+      <Route path='/media' exact>
         <Gallery />
       </Route>
       <Route path='/some_two' exact></Route>

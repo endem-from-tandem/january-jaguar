@@ -10,10 +10,11 @@ import Typography from '@material-ui/core/Typography'
 import jagu_one from '../../img/jagu_2.jpg'
 import jagu_two from '../../img/jagu_3.jpg'
 import jagu_four from '../../img/jagu_4.jpg'
+import jagu_five from '../../img/jagu_5.jpg'
 
 import CloseIcon from '@material-ui/icons/Close'
 
-const images = [jagu_one, jagu_two, jagu_four]
+const images = [jagu_one, jagu_two, jagu_four, jagu_five]
 
 const Gallery: React.FC = () => {
   const useStyles = makeStyles((theme) => createStyles({}))
@@ -27,8 +28,8 @@ const Gallery: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false)
   return (
     <div>
-      <Button variant='outlined' onClick={() => setOpen(true)}>
-        Open
+      <Button color='primary' variant='contained' onClick={() => setOpen(true)}>
+        material-auto-rotating-carousel
       </Button>
       {true ? (
         <AutoRotatingCarousel
@@ -48,11 +49,24 @@ const Gallery: React.FC = () => {
           {images.map((img, index) => (
             <Slide
               mobile={matchesWidth}
-              title='Jaguar'
+              title={
+                <Typography
+                  variant={matchesHeight || matchesWidth ? 'subtitle1' : 'h5'}
+                >
+                  Jaguar is so awesome animal!
+                </Typography>
+              }
+              subtitle={
+                <Typography
+                  variant={matchesHeight || matchesWidth ? 'subtitle2' : 'h6'}
+                >
+                  something about
+                </Typography>
+              }
               media={
                 <div
                   style={{
-                    width: matchesHeight ? '400px' : '500px',
+                    width: matchesHeight ? '350px' : '500px',
                     height: '100%',
                     marginTop: '30px',
                     backgroundImage: `url(${img})`,
@@ -64,7 +78,10 @@ const Gallery: React.FC = () => {
               mediaBackgroundStyle={{
                 backgroundColor: themeObject.palette.primary.main,
               }}
-              style={{ backgroundColor: themeObject.palette.primary.main }}
+              style={{
+                backgroundColor: themeObject.palette.primary.main,
+                borderRadius: '5px',
+              }}
             />
           ))}
         </AutoRotatingCarousel>

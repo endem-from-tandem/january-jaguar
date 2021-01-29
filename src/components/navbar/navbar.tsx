@@ -137,12 +137,18 @@ const Navbar: React.FC<INavbar> = ({
   showPasswordHandler,
 }) => {
   const classes = useStyles()
-  const navs = ['gallery', 'some_two', 'with_large_text']
+  const navs = ['MEDIA', 'some_two', 'with_large_text']
 
   const drawer = (
     <List>
       {navs.map((nav, index) => (
-        <ListItem button component={Link} to={`/${nav}`} key={nav}>
+        <ListItem
+          button
+          component={Link}
+          to={`/${nav}`}
+          disabled={index > 0 ? true : false}
+          key={nav}
+        >
           <ListItemText primary={nav} />
         </ListItem>
       ))}
