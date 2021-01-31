@@ -37,8 +37,8 @@ const App: React.FC<IApp> = ({ theme }) => {
   const useStyles = makeStyles(() =>
     createStyles({
       root: {
-        minHeight: '101vh',
-        paddingTop: 60,
+        minHeight: '100.5vh',
+        paddingTop: 55,
         paddingBottom: '10px',
       },
     })

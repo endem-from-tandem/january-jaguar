@@ -9,6 +9,7 @@ import {
   Hidden,
 } from '@material-ui/core'
 
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
@@ -30,9 +31,10 @@ const Home: React.FC = () => {
   )
   const classes = useStyles()
   const themeObject = useTheme()
+  const f = useMediaQuery((theme: any) => theme.breakpoints.up('navbar'))
   return (
     <>
-      <Typography variant='h2' color='secondary'>
+      <Typography variant={f ? 'h3' : 'h4'} color='secondary'>
         January Jaguar
       </Typography>
       <Card className={classes.card}>
