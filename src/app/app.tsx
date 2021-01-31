@@ -34,11 +34,13 @@ declare module '@material-ui/core/styles/createBreakpoints' {
 }
 
 const App: React.FC<IApp> = ({ theme }) => {
-  const useStyles = makeStyles(() =>
+  const themeObject = useTheme()
+  const useStyles = makeStyles((theme) =>
     createStyles({
       root: {
         minHeight: '100.5vh',
         paddingTop: 55,
+
         paddingBottom: '10px',
       },
     })
@@ -49,7 +51,12 @@ const App: React.FC<IApp> = ({ theme }) => {
     <ThemeProvider theme={theme === 'dark' ? darkTheme() : lightTheme()}>
       <SnackbarProvider maxSnack={3}>
         <CssBaseline />
-        <Paper className={classes.root}>
+        <Paper
+          style={{
+            backgroundColor: theme === 'light' ? '#fff' : '#444',
+          }}
+          className={classes.root}
+        >
           <NavbarContainer />
           <Container maxWidth='md'>{useRoutes()}</Container>
         </Paper>

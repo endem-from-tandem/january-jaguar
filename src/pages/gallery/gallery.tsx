@@ -145,10 +145,22 @@ const Gallery: React.FC = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size='small' variant='outlined' color='primary'>
+          <Button
+            size='small'
+            variant='outlined'
+            color={
+              themeObject.palette.type === 'light' ? 'primary' : 'secondary'
+            }
+          >
             Подробнее
           </Button>
-          <Button size='small' variant='outlined' color='primary'>
+          <Button
+            size='small'
+            variant='outlined'
+            color={
+              themeObject.palette.type === 'light' ? 'primary' : 'secondary'
+            }
+          >
             Спасибо
           </Button>
         </CardActions>

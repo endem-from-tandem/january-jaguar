@@ -38,8 +38,9 @@ const darkTheme = () =>
       secondary: {
         main: '#ebebeb',
       },
+
       background: {
-        paper: '#444',
+        paper: '#222',
       },
     },
     breakpoints: common.bp,
