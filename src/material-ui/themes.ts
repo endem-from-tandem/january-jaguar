@@ -24,6 +24,9 @@ const lightTheme = () =>
       secondary: {
         main: '#222',
       },
+      background: {
+        paper: '#e3e4fa',
+      },
     },
     breakpoints: common.bp,
   })
@@ -40,7 +43,7 @@ const darkTheme = () =>
       },
 
       background: {
-        paper: '#222',
+        paper: '#444',
       },
     },
     breakpoints: common.bp,

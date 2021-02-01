@@ -20,6 +20,8 @@ import {
   Container,
 } from '@material-ui/core'
 
+import Background from '../img/wakeup.png'
+
 interface IApp {
   theme: 'light' | 'dark'
   darkTheme?: any
@@ -53,7 +55,8 @@ const App: React.FC<IApp> = ({ theme }) => {
         <CssBaseline />
         <Paper
           style={{
-            backgroundColor: theme === 'light' ? '#fff' : '#444',
+            backgroundColor: theme === 'light' ? '#fff' : '#333',
+            //backgroundImage: `url(${Background})`,
           }}
           className={classes.root}
         >

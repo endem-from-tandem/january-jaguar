@@ -20,10 +20,11 @@ import jagu_five from '../../img/jagu_5.jpg'
 import jagu_v from '../../img/jagu.mp4'
 
 import CloseIcon from '@material-ui/icons/Close'
+import { findAllByDisplayValue } from '@testing-library/react'
 
 const images = [jagu_one, jagu_two, jagu_four, jagu_five]
 
-const Gallery: React.FC = () => {
+const Media: React.FC = () => {
   const useStyles = makeStyles((theme) =>
     createStyles({
       card: {
@@ -56,11 +57,20 @@ const Gallery: React.FC = () => {
   const matchesHeight = useMediaQuery('( max-height: 500px )')
 
   const [open, setOpen] = useState<boolean>(false)
+
+  const overCardHandler = (e: any) => {
+    const video = e.currentTarget.firstChild
+    if (video.paused === false) {
+      return
+    }
+    e.currentTarget.firstChild.play()
+  }
+
+  const leaveCardHandler = (e: any) => {
+    e.currentTarget.firstChild.pause()
+  }
   return (
     <div>
-      <Button color='primary' variant='contained' onClick={() => setOpen(true)}>
-        material-auto-rotating-carousel
-      </Button>
       {true ? (
         <AutoRotatingCarousel
           ButtonProps={{
@@ -125,48 +135,111 @@ const Gallery: React.FC = () => {
         </video>
       </div>
       */}
+      <Box
+        style={{ maxWidth: '700px' }}
+        display='flex'
+        flexWrap='wrap'
+        justifyContent='space-between'
+      >
+        <Card
+          onMouseOver={overCardHandler}
+          onMouseLeave={leaveCardHandler}
+          className={classes.card}
+        >
+          <CardMedia
+            className={classes.cardMedia}
+            component='video'
+            height='140'
+            width='100%'
+            autoPlay={false}
+            image={jagu_v}
+            title='Jaguar Media'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='h2'>
+              Пантеры атакуют
+            </Typography>
+            <Typography variant='body2' color='textSecondary' component='p'>
+              National geographic discovery channel
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              size='small'
+              variant='outlined'
+              color={
+                themeObject.palette.type === 'light' ? 'primary' : 'secondary'
+              }
+            >
+              Подробнее
+            </Button>
+            <Button
+              size='small'
+              variant='outlined'
+              color={
+                themeObject.palette.type === 'light' ? 'primary' : 'secondary'
+              }
+            >
+              Спасибо
+            </Button>
+          </CardActions>
+        </Card>
 
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.cardMedia}
-          component='video'
-          height='140'
-          width='100%'
-          autoPlay
-          image={jagu_v}
-          title='Contemplative Reptile'
-        />
-        <CardContent>
-          <Typography gutterBottom variant='h5' component='h2'>
-            Пантеры атакуют
-          </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
-            National geographic discovery channel
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button
-            size='small'
-            variant='outlined'
-            color={
-              themeObject.palette.type === 'light' ? 'primary' : 'secondary'
-            }
-          >
-            Подробнее
-          </Button>
-          <Button
-            size='small'
-            variant='outlined'
-            color={
-              themeObject.palette.type === 'light' ? 'primary' : 'secondary'
-            }
-          >
-            Спасибо
-          </Button>
-        </CardActions>
-      </Card>
+        <Card
+          onMouseOver={overCardHandler}
+          onMouseLeave={leaveCardHandler}
+          className={classes.card}
+        >
+          <CardMedia
+            className={classes.cardMedia}
+            component='video'
+            height='140'
+            width='100%'
+            autoPlay={false}
+            image={jagu_v}
+            title='Jaguar Media'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='h2'>
+              Пантеры атакуют
+            </Typography>
+            <Typography variant='body2' color='textSecondary' component='p'>
+              National geographic discovery channel
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              size='small'
+              variant='outlined'
+              color={
+                themeObject.palette.type === 'light' ? 'primary' : 'secondary'
+              }
+            >
+              Подробнее
+            </Button>
+            <Button
+              size='small'
+              variant='outlined'
+              color={
+                themeObject.palette.type === 'light' ? 'primary' : 'secondary'
+              }
+            >
+              Спасибо
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
+      <Box mt={3}>
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() => setOpen(true)}
+        >
+          material-auto-rotating-carousel
+        </Button>
+      </Box>
     </div>
   )
 }
 
-export default Gallery
+export default Media
